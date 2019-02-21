@@ -12,7 +12,8 @@ class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // set the icon in tab bar to is true color
+        tabBarItem.selectedImage = tabBarItem.selectedImage?.withRenderingMode(.alwaysOriginal)
         // Do any additional setup after loading the view.
     }
     

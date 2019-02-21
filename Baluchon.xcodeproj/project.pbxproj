@@ -12,7 +12,7 @@
 		4D16A58822082A78003BD7AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D16A58622082A78003BD7AD /* LaunchScreen.storyboard */; };
 		4D16A59322082A78003BD7AD /* BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D16A59222082A78003BD7AD /* BaluchonTests.swift */; };
 		4D8D2BF0221D872C001D24B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8D2BEF221D872C001D24B5 /* Assets.xcassets */; };
-		4DFB654C221AC9580039BE91 /* ChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB654B221AC9580039BE91 /* ChangeViewController.swift */; };
+		4D8D2BF2221D88AB001D24B5 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */; };
 		4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */; };
 		4DFB6550221AC9860039BE91 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB654F221AC9860039BE91 /* TranslateViewController.swift */; };
 		4DFB6552221ACEEB0039BE91 /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB6551221ACEEB0039BE91 /* ExchangeRateService.swift */; };
@@ -39,7 +39,7 @@
 		4D16A59222082A78003BD7AD /* BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaluchonTests.swift; sourceTree = "<group>"; };
 		4D16A59422082A78003BD7AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D8D2BEF221D872C001D24B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4DFB654B221AC9580039BE91 /* ChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewController.swift; sourceTree = "<group>"; };
+		4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
 		4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		4DFB654F221AC9860039BE91 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		4DFB6551221ACEEB0039BE91 /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = "<group>"; };
@@ -125,9 +125,9 @@
 		4D16A59F22082BF0003BD7AD /* Controler */ = {
 			isa = PBXGroup;
 			children = (
-				4DFB654B221AC9580039BE91 /* ChangeViewController.swift */,
-				4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */,
+				4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */,
 				4DFB654F221AC9860039BE91 /* TranslateViewController.swift */,
+				4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DFB654C221AC9580039BE91 /* ChangeViewController.swift in Sources */,
+				4D8D2BF2221D88AB001D24B5 /* ExchangeRateViewController.swift in Sources */,
 				4DFB6552221ACEEB0039BE91 /* ExchangeRateService.swift in Sources */,
 				4DFB6550221AC9860039BE91 /* TranslateViewController.swift in Sources */,
 				4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */,
