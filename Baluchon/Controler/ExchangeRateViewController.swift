@@ -9,7 +9,8 @@
 import UIKit
 
 class ExchangeRateViewController: UIViewController {
-
+    @IBOutlet weak var firstExchangeRate: UILabel!
+    
     @IBOutlet weak var firstMoneyPicker: UIPickerView!
     @IBOutlet weak var secondMoneyPicker: UIPickerView!
     var firstPickerData = ["EURO", "DOLLARS", "DOLLARS AUSTRALIEN", "MNM"]
@@ -17,10 +18,12 @@ class ExchangeRateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
-tabBarItem.selectedImage = tabBarItem.selectedImage?.withRenderingMode(.alwaysOriginal)
-        // Do any additional setup after loading the view.
+        setOriginalImage()
     }
-
+    @IBAction func didTapRefreshButton() {
+        ExchangeRateService.getExchangeRate()
+    }
+    
 }
 
 // MARK: - Money Pickers Delegate

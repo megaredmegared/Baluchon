@@ -8,5 +8,10 @@
 
 import Foundation
 
-class ExchangeRate {
+struct ExchangeRate: Codable {
+    var success: Bool
+    var timestamp: Int
+    var base: String
+    var date: String
+    var rates: [String: Double]
 }
