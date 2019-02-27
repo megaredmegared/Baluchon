@@ -10,42 +10,100 @@ import UIKit
 
 class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var firstExchangeRate: UILabel!
+    @IBOutlet weak var secondExchangeRate: UILabel!
+    @IBOutlet weak var firstValue: UITextField!
+    @IBOutlet weak var secondValue: UITextField!
     
     @IBOutlet weak var firstMoneyPicker: UIPickerView!
     @IBOutlet weak var secondMoneyPicker: UIPickerView!
-    var firstPickerData = ["EURO", "DOLLARS", "DOLLARS AUSTRALIEN", "MNM"]
-    var secondPickerData = ["EUR", "DOL", "LIR"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
         setOriginalImage()
+        // set first picker to Euro
+        firstMoneyPicker.selectRow(0, inComponent:0, animated:true)
+        // set second picker to Dollar
+        secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
+        // get Exchange rates
+        getRates()
+        
     }
-    @IBAction func didTapRefreshButton() {
-        ExchangeRateService.getExchangeRate()
+
+    /// Get exchange rate
+    private func getRates() {
+        ExchangeRateService.shared.getExchangeRate { (success, exchangeRate) in
+            if success, let exchangeRate = exchangeRate {
+                self.update(exchangeRate: exchangeRate)
+            } else {
+                self.presentAlert()
+            }
+        }
     }
     
+    /// Update the exchange rates 
+    private func update(exchangeRate: ExchangeRate) {
+        // Find the selected index of the currencie in pickers
+        let firstCurrency: Int = firstMoneyPicker.selectedRow(inComponent: 0)
+        let secondCurrency: Int = secondMoneyPicker.selectedRow(inComponent: 0)
+        
+        // Translate currencie in the symbol form
+        let firstCurrencySymbol: String = Currency.symbol[Currency.name[firstCurrency]]!
+        let secondCurrencySymbol: String = Currency.symbol[Currency.name[secondCurrency]]!
+        
+        // Set the labels with the currencie exchange rates
+        firstExchangeRate.text = "1 \(firstCurrencySymbol)"
+        let secondCurrencyExchangeRate: Double = round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 100) / 100
+        secondExchangeRate.text = "\(secondCurrencyExchangeRate) \(secondCurrencySymbol)"
+        // Set the values in big number label
+        secondValue.text = String(Double(firstValue.text!)! * secondCurrencyExchangeRate)
+    }
+   
+
+    /// Alert pop up message
+    private func presentAlert() {
+        let alertVC = UIAlertController(title: "Error", message: "Today sync of exchange rate failed", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Money Pickers Delegate
 extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == firstMoneyPicker {
-         return firstPickerData.count
+            return Currency.name.count
         } else {
-            return secondPickerData.count
+            return Currency.name.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == firstMoneyPicker {
-            return firstPickerData[row]
+        
+            return Currency.name[row]
         } else {
-            return secondPickerData[row]
+            return Currency.name[row]
         }
+    }
+}
+
+// MARK: - Keyboard
+// no need if keypad keybord
+extension ExchangeRateViewController: UITextFieldDelegate {
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        firstValue.resignFirstResponder()
+        getRates()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        getRates()
+        return true
     }
 }

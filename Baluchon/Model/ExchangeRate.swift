@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Exchange rate infos
 struct ExchangeRate: Codable {
     var success: Bool
     var timestamp: Int

@@ -14,8 +14,9 @@
 		4D379A6A221FFF0600F2C9EB /* TabBarSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D379A69221FFF0600F2C9EB /* TabBarSetup.swift */; };
 		4D8003CE222438BD00C310BB /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003CD222438BD00C310BB /* TranslateService.swift */; };
 		4D8003D02224397F00C310BB /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003CF2224397F00C310BB /* WeatherService.swift */; };
-		4D8003D2222439A000C310BB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003D1222439A000C310BB /* Weather.swift */; };
+		4D8003D2222439A000C310BB /* CityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003D1222439A000C310BB /* CityWeather.swift */; };
 		4D8003D4222439B800C310BB /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003D3222439B800C310BB /* Translation.swift */; };
+		4D8003D622253D0C00C310BB /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003D522253D0C00C310BB /* Currency.swift */; };
 		4D8D2BF0221D872C001D24B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8D2BEF221D872C001D24B5 /* Assets.xcassets */; };
 		4D8D2BF2221D88AB001D24B5 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */; };
 		4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */; };
@@ -46,8 +47,9 @@
 		4D379A69221FFF0600F2C9EB /* TabBarSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSetup.swift; sourceTree = "<group>"; };
 		4D8003CD222438BD00C310BB /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		4D8003CF2224397F00C310BB /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
-		4D8003D1222439A000C310BB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		4D8003D1222439A000C310BB /* CityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeather.swift; sourceTree = "<group>"; };
 		4D8003D3222439B800C310BB /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		4D8003D522253D0C00C310BB /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		4D8D2BEF221D872C001D24B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
 		4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -119,10 +121,11 @@
 			children = (
 				4DFB6551221ACEEB0039BE91 /* ExchangeRateService.swift */,
 				4D8003CD222438BD00C310BB /* TranslateService.swift */,
-				4DFB6553221AE40F0039BE91 /* ExchangeRate.swift */,
-				4D8003D1222439A000C310BB /* Weather.swift */,
-				4D8003D3222439B800C310BB /* Translation.swift */,
 				4D8003CF2224397F00C310BB /* WeatherService.swift */,
+				4DFB6553221AE40F0039BE91 /* ExchangeRate.swift */,
+				4D8003D522253D0C00C310BB /* Currency.swift */,
+				4D8003D1222439A000C310BB /* CityWeather.swift */,
+				4D8003D3222439B800C310BB /* Translation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,9 +254,10 @@
 				4D8003CE222438BD00C310BB /* TranslateService.swift in Sources */,
 				4D8003D02224397F00C310BB /* WeatherService.swift in Sources */,
 				4D379A6A221FFF0600F2C9EB /* TabBarSetup.swift in Sources */,
+				4D8003D622253D0C00C310BB /* Currency.swift in Sources */,
 				4D8003D4222439B800C310BB /* Translation.swift in Sources */,
 				4D8D2BF2221D88AB001D24B5 /* ExchangeRateViewController.swift in Sources */,
-				4D8003D2222439A000C310BB /* Weather.swift in Sources */,
+				4D8003D2222439A000C310BB /* CityWeather.swift in Sources */,
 				4DFB6552221ACEEB0039BE91 /* ExchangeRateService.swift in Sources */,
 				4DFB6550221AC9860039BE91 /* TranslateViewController.swift in Sources */,
 				4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */,
