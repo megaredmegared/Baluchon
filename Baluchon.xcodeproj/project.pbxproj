@@ -19,6 +19,7 @@
 		4D8003D622253D0C00C310BB /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8003D522253D0C00C310BB /* Currency.swift */; };
 		4D8D2BF0221D872C001D24B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8D2BEF221D872C001D24B5 /* Assets.xcassets */; };
 		4D8D2BF2221D88AB001D24B5 /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */; };
+		4DCBFFA82227E72D00E6D03A /* ExchangeRateServiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCBFFA72227E72D00E6D03A /* ExchangeRateServiceTextField.swift */; };
 		4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */; };
 		4DFB6550221AC9860039BE91 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB654F221AC9860039BE91 /* TranslateViewController.swift */; };
 		4DFB6552221ACEEB0039BE91 /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFB6551221ACEEB0039BE91 /* ExchangeRateService.swift */; };
@@ -52,6 +53,7 @@
 		4D8003D522253D0C00C310BB /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		4D8D2BEF221D872C001D24B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D8D2BF1221D88AB001D24B5 /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
+		4DCBFFA72227E72D00E6D03A /* ExchangeRateServiceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateServiceTextField.swift; sourceTree = "<group>"; };
 		4DFB654D221AC96C0039BE91 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		4DFB654F221AC9860039BE91 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		4DFB6551221ACEEB0039BE91 /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				4D16A58122082A78003BD7AD /* Main.storyboard */,
+				4DCBFFA72227E72D00E6D03A /* ExchangeRateServiceTextField.swift */,
 				4D16A58622082A78003BD7AD /* LaunchScreen.storyboard */,
 				4D379A69221FFF0600F2C9EB /* TabBarSetup.swift */,
 			);
@@ -263,6 +266,7 @@
 				4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */,
 				4DFB6554221AE40F0039BE91 /* ExchangeRate.swift in Sources */,
 				4D16A57E22082A78003BD7AD /* AppDelegate.swift in Sources */,
+				4DCBFFA82227E72D00E6D03A /* ExchangeRateServiceTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

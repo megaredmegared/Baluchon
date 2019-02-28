@@ -17,6 +17,11 @@ class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var firstMoneyPicker: UIPickerView!
     @IBOutlet weak var secondMoneyPicker: UIPickerView!
     
+    @IBOutlet weak var dismissKeyboardTouchView: UIView!
+    
+    /// Temporarly saved the data rates will app is running
+    var exchangeRateTemporarlySaved = ExchangeRate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
@@ -25,24 +30,24 @@ class ExchangeRateViewController: UIViewController {
         firstMoneyPicker.selectRow(0, inComponent:0, animated:true)
         // set second picker to Dollar
         secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
-        // get Exchange rates
+        // Get exchange rates at start
         getRates()
-        
     }
-
-    /// Get exchange rate
+ 
+    /// Get exchange rate and store it until the app is closed
     private func getRates() {
         ExchangeRateService.shared.getExchangeRate { (success, exchangeRate) in
             if success, let exchangeRate = exchangeRate {
-                self.update(exchangeRate: exchangeRate)
+                self.exchangeRateTemporarlySaved = exchangeRate
             } else {
                 self.presentAlert()
             }
         }
     }
     
+    
     /// Update the exchange rates 
-    private func update(exchangeRate: ExchangeRate) {
+    private func updateView(exchangeRate: ExchangeRate) {
         // Find the selected index of the currencie in pickers
         let firstCurrency: Int = firstMoneyPicker.selectedRow(inComponent: 0)
         let secondCurrency: Int = secondMoneyPicker.selectedRow(inComponent: 0)
@@ -56,10 +61,13 @@ class ExchangeRateViewController: UIViewController {
         let secondCurrencyExchangeRate: Double = round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 100) / 100
         secondExchangeRate.text = "\(secondCurrencyExchangeRate) \(secondCurrencySymbol)"
         // Set the values in big number label
-        secondValue.text = String(Double(firstValue.text!)! * secondCurrencyExchangeRate)
+        secondValue.text = String(round(Double(firstValue.text!)! * secondCurrencyExchangeRate*100)/100)
     }
-   
+    
+    
+  
 
+    
     /// Alert pop up message
     private func presentAlert() {
         let alertVC = UIAlertController(title: "Error", message: "Today sync of exchange rate failed", preferredStyle: .alert)
@@ -84,8 +92,9 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        //TODO: - Ask why better here !
+        updateView(exchangeRate: exchangeRateTemporarlySaved)
         if pickerView == firstMoneyPicker {
-        
             return Currency.name[row]
         } else {
             return Currency.name[row]
@@ -94,16 +103,17 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
 }
 
 // MARK: - Keyboard
-// no need if keypad keybord
+// no need if keypad keyboard ?
 extension ExchangeRateViewController: UITextFieldDelegate {
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        firstValue.resignFirstResponder()
-        getRates()
-    }
     
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        updateView(exchangeRate: exchangeRateTemporarlySaved)
+        firstValue.resignFirstResponder()
+    }
+        
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        getRates()
+        updateView(exchangeRate: exchangeRateTemporarlySaved)
         return true
     }
 }
