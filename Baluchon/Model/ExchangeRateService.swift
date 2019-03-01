@@ -30,6 +30,7 @@ class ExchangeRateService {
         task?.cancel()
         /// Create task
         task = session.dataTask(with: url) { (data, response, error) in
+            // Back in the main queue
             DispatchQueue.main.async {
                 // Checks if data received
                 guard let data = data, error == nil else {
@@ -46,12 +47,6 @@ class ExchangeRateService {
                 }
                 // Callback success
                 callback(true, exchangeRate)
-                
-                print(exchangeRate.success)
-                print(exchangeRate.timestamp)
-                print(exchangeRate.base)
-                print(exchangeRate.date)
-                print(exchangeRate.rates["USD"]!)
             }
         }
             /// Launch task

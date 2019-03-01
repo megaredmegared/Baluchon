@@ -266,6 +266,7 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="delegate" destination="6h5-hg-ohZ" id="ln4-Na-cyg"/>

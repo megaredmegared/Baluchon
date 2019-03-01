@@ -32,6 +32,7 @@ class WeatherService {
         task?.cancel()
         /// Create task
         task = session.dataTask(with: url) { (data, response, error) in
+            // Back in the main queue
             DispatchQueue.main.async {
                 // Checks if data received
                 guard let data = data, error == nil else {

@@ -32,6 +32,8 @@ class ExchangeRateViewController: UIViewController {
         secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
         // Get exchange rates at start
         getRates()
+        
+        
     }
  
     /// Get exchange rate and store it until the app is closed
@@ -46,7 +48,7 @@ class ExchangeRateViewController: UIViewController {
     }
     
     
-    /// Update the exchange rates 
+    /// Update the exchange rates on screen
     private func updateView(exchangeRate: ExchangeRate) {
         // Find the selected index of the currencie in pickers
         let firstCurrency: Int = firstMoneyPicker.selectedRow(inComponent: 0)
@@ -60,7 +62,11 @@ class ExchangeRateViewController: UIViewController {
         firstExchangeRate.text = "1 \(firstCurrencySymbol)"
         let secondCurrencyExchangeRate: Double = round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 100) / 100
         secondExchangeRate.text = "\(secondCurrencyExchangeRate) \(secondCurrencySymbol)"
+        
         // Set the values in big number label
+        if firstValue.text == "" {
+            firstValue.text = "1.0"
+        }
         secondValue.text = String(round(Double(firstValue.text!)! * secondCurrencyExchangeRate*100)/100)
     }
     
@@ -105,6 +111,16 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
 // MARK: - Keyboard
 // no need if keypad keyboard ?
 extension ExchangeRateViewController: UITextFieldDelegate {
+   
+   
+    
+    /// Clear the value in text field to begin tapping a new one
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == firstValue {
+            firstValue.text = ""
+        }
+    }
+ 
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
