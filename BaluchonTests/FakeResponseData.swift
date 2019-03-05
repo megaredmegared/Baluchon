@@ -31,6 +31,15 @@ class FakeResponseData {
         return data
     }
     
+    //MARK: - Fake response data for Translation
+    /// Fake data ok
+    static var translationData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "Translation", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        return data
+    }
+    
     //MARK: - Fake response data for CityWeather
     /// Fake data ok
     static var cityWeatherData: Data {

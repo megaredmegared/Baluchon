@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Fake URLSession and Fake URLSessionDataTask for EchangeService and Weather service
 class URLSessionFake: URLSession {
     var data: Data?
     var response: URLResponse?
@@ -17,6 +18,14 @@ class URLSessionFake: URLSession {
         self.data = data
         self.response = response
         self.error = error
+    }
+    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        let task = URLSessionDataTaskFake()
+        task.completionHandler = completionHandler
+        task.data = data
+        task.urlResponse = response
+        task.responseError = error
+        return task
     }
     
     override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {

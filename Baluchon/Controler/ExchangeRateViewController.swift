@@ -98,14 +98,17 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //TODO: - Ask why better here !
-        updateView(exchangeRate: exchangeRateTemporarlySaved)
         if pickerView == firstMoneyPicker {
             return Currency.name[row]
         } else {
             return Currency.name[row]
         }
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+         updateView(exchangeRate: exchangeRateTemporarlySaved)
+    }
+ 
 }
 
 // MARK: - Keyboard
@@ -120,7 +123,6 @@ extension ExchangeRateViewController: UITextFieldDelegate {
             firstValue.text = ""
         }
     }
- 
     
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
@@ -132,4 +134,5 @@ extension ExchangeRateViewController: UITextFieldDelegate {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
         return true
     }
+    
 }
