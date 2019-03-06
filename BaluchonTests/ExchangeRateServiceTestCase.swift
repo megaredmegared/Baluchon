@@ -1,34 +1,28 @@
-//
-//  ExchangeRateServiceTestCase.swift
-//  BaluchonTests
-//
-//  Created by megared on 01/03/2019.
-//  Copyright © 2019 OpenClassrooms. All rights reserved.
-//
 
 @testable import Baluchon
 import XCTest
 
 class ExchangeRateServiceTestCase: XCTestCase {
-    
+    /// Testing Error
     func testGivenError_WhenPostCallBack_ThenFailedCallBack() {
-                // Given
-                let exchangeRateService = ExchangeRateService(session: URLSessionFake(
-                    data: nil,
-                    response: nil,
-                    error: FakeResponseData.error
-                ))
-                // When
-                let expectation = XCTestExpectation(description: "Wait for queue change.")
-                exchangeRateService.getExchangeRate { (success, exchangeRate) in
-                    // Then
-                    XCTAssertFalse(success)
-                    XCTAssertNil(exchangeRate)
-                    expectation.fulfill()
-                }
-                wait(for: [expectation], timeout: 0.01)
+        // Given
+        let exchangeRateService = ExchangeRateService(session: URLSessionFake(
+            data: nil,
+            response: nil,
+            error: FakeResponseData.error
+        ))
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        exchangeRateService.getExchangeRate { (success, exchangeRate) in
+            // Then
+            XCTAssertFalse(success)
+            XCTAssertNil(exchangeRate)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing bad response
     func testGivenBadResponse_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let exchangeRateService = ExchangeRateService(session: URLSessionFake(
@@ -47,6 +41,7 @@ class ExchangeRateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing bad data
     func testGivenBadData_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let exchangeRateService = ExchangeRateService(session: URLSessionFake(
@@ -65,6 +60,7 @@ class ExchangeRateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing no response, no data
     func testGivenNoData_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let exchangeRateService = ExchangeRateService(session: URLSessionFake(
@@ -83,6 +79,7 @@ class ExchangeRateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing when everything is OK
     func testGivenAllGood_WhenPostCallBack_ThenSuccesCallBackAndData() {
         // Given
         let exchangeRateService = ExchangeRateService(session: URLSessionFake(
@@ -264,7 +261,7 @@ class ExchangeRateServiceTestCase: XCTestCase {
                          "ZMK": 10236.778619,
                          "ZMW": 13.675645,
                          "ZWL": 366.604506
-        ]
+            ]
             
             
             XCTAssertTrue(success)
@@ -277,5 +274,4 @@ class ExchangeRateServiceTestCase: XCTestCase {
         }
         wait(for: [expectation], timeout: 0.01)
     }
-
 }

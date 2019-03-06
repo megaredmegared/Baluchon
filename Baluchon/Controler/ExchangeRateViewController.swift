@@ -9,8 +9,10 @@
 import UIKit
 
 class ExchangeRateViewController: UIViewController {
+    //MARK: - Variables
     @IBOutlet weak var firstExchangeRate: UILabel!
     @IBOutlet weak var secondExchangeRate: UILabel!
+    
     @IBOutlet weak var firstValue: UITextField!
     @IBOutlet weak var secondValue: UITextField!
     
@@ -22,6 +24,7 @@ class ExchangeRateViewController: UIViewController {
     /// Temporarly saved the data rates will app is running
     var exchangeRateTemporarlySaved = ExchangeRate()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
@@ -35,7 +38,8 @@ class ExchangeRateViewController: UIViewController {
         
         
     }
- 
+    
+    //MARK: - Functions
     /// Get exchange rate and store it until the app is closed
     private func getRates() {
         ExchangeRateService.shared.getExchangeRate { (success, exchangeRate) in
@@ -46,7 +50,6 @@ class ExchangeRateViewController: UIViewController {
             }
         }
     }
-    
     
     /// Update the exchange rates on screen
     private func updateView(exchangeRate: ExchangeRate) {
@@ -69,10 +72,6 @@ class ExchangeRateViewController: UIViewController {
         }
         secondValue.text = String(round(Double(firstValue.text!)! * secondCurrencyExchangeRate*100)/100)
     }
-    
-    
-  
-
     
     /// Alert pop up message
     private func presentAlert() {
@@ -106,33 +105,28 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-         updateView(exchangeRate: exchangeRateTemporarlySaved)
+        updateView(exchangeRate: exchangeRateTemporarlySaved)
     }
- 
+    
 }
 
 // MARK: - Keyboard
-// no need if keypad keyboard ?
 extension ExchangeRateViewController: UITextFieldDelegate {
-   
-   
-    
     /// Clear the value in text field to begin tapping a new one
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == firstValue {
             firstValue.text = ""
         }
     }
-    
+    /// Tap away from keyboard to dismiss it
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
         firstValue.resignFirstResponder()
     }
-        
+    /// Tap Done button from keyboard to dismiss it
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         updateView(exchangeRate: exchangeRateTemporarlySaved)
         return true
     }
-    
 }

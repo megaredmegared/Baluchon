@@ -1,10 +1,3 @@
-//
-//  FakeResponseData.swift
-//  BaluchonTests
-//
-//  Created by megared on 01/03/2019.
-//  Copyright © 2019 OpenClassrooms. All rights reserved.
-//
 
 import Foundation
 
@@ -48,7 +41,5 @@ class FakeResponseData {
         let data = try! Data(contentsOf: url)
         return data
     }
-    
-
 }
 

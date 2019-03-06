@@ -9,14 +9,17 @@
 import UIKit
 
 class TranslateViewController: UIViewController {
+    //MARK: - Variables
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translated: UITextView!
     @IBOutlet weak var firstLanguageLabel: UILabel!
     @IBOutlet weak var secondLanguageLabel: UILabel!
     
+    // Languages for traduction
     var firstLanguage = "fr"
     var secondLanguage = "en"
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
@@ -24,6 +27,7 @@ class TranslateViewController: UIViewController {
         getTranslation()
     }
     
+    //MARKS: - Functions
     /// Get translation from a text
     private func getTranslation() {
         TranslateService.shared.getTranslation(for: textToTranslate.text, from: firstLanguage, to: secondLanguage) { (success, translation) in
@@ -35,12 +39,13 @@ class TranslateViewController: UIViewController {
         }
     }
     
+    /// Button tapped to invert the languages for traduction
     @IBAction func didTapInvertTraductionLanguages() {
         invertTraductionLanguages()
         getTranslation()
     }
     
-
+    /// Invert the languages for traduction
     private func invertTraductionLanguages() {
         if firstLanguage == "fr" {
             firstLanguage = "en"
@@ -56,34 +61,25 @@ class TranslateViewController: UIViewController {
         textToTranslate.text = translated.text
     }
     
-    
-    
-    
-    
     /// Alert pop up message
     private func presentAlert() {
         let alertVC = UIAlertController(title: "Error", message: "The translation has failed", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - Keyboard
 extension TranslateViewController: UITextViewDelegate{
-    
     /// Clear the value in textView to begin tapping a new one
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView == textToTranslate {
             textToTranslate.text = ""
         }
     }
-    
+    /// Tap away from keyboard to dismiss it
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         getTranslation()
         textToTranslate.resignFirstResponder()
     }
-    
-
-
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
+    //MARK: - Variables
     @IBOutlet weak var firstCityName: UILabel!
     @IBOutlet weak var firstCityTemperature: UILabel!
     @IBOutlet weak var firstCityWeather: UILabel!
@@ -16,6 +17,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var secondCityTemperature: UILabel!
     @IBOutlet weak var secondCityWeather: UILabel!
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
@@ -23,6 +25,8 @@ class WeatherViewController: UIViewController {
         // Get weather infos
         getCityWeather()
     }
+    
+    //MARK: - Functions
     /// Get weather infos
     private func getCityWeather() {
         WeatherService.shared.getWeather { (success, cityWeather) in
@@ -33,6 +37,7 @@ class WeatherViewController: UIViewController {
             }
         }
     }
+    
     /// Update weather infos
     private func update(cityWeather: CityWeather) {
         firstCityName.text = cityWeather.list[0].name
@@ -42,6 +47,7 @@ class WeatherViewController: UIViewController {
         secondCityTemperature.text = "\(Int(round(cityWeather.list[1].main.temp)))°C"
         secondCityWeather.text = cityWeather.list[1].weather[0].description
     }
+    
     /// Alert pop up message
     private func presentAlert() {
         let alertVC = UIAlertController(title: "Error", message: "Today sync of weather failed", preferredStyle: .alert)

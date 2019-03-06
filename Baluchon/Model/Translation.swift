@@ -1,13 +1,7 @@
-//
-//  Translation.swift
-//  Baluchon
-//
-//  Created by megared on 25/02/2019.
-//  Copyright © 2019 OpenClassrooms. All rights reserved.
-//
 
 import Foundation
 
+/// translated text
 struct Translation: Codable {
     
     let data: Translations
@@ -23,13 +17,3 @@ struct Translation: Codable {
     }
     
 }
-
-//{
-//    "data": {
-//        "translations": [
-//        {
-//        "translatedText": "Bonjour le monde"
-//        }
-//        ]
-//    }
-//}

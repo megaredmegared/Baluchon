@@ -1,13 +1,7 @@
-//
-//  TranslateService.swift
-//  Baluchon
-//
-//  Created by megared on 25/02/2019.
-//  Copyright © 2019 OpenClassrooms. All rights reserved.
-//
 
 import Foundation
 
+/// Translate Service from google translate API
 class TranslateService {
     /// singleton instance shared
     static var shared = TranslateService()
@@ -19,7 +13,7 @@ class TranslateService {
     init(session: URLSession) {
         self.session = session
     }
-    //translate text: String, from firstLanguage: String, to secondLanguage: String
+    
     /// Create url request
     private func createTraductionRequest(for text: String, from firstLanguage: String, to secondLanguage: String) -> URLRequest {
         let url = URL(string: "https://translation.googleapis.com/language/translate/v2")!
@@ -36,7 +30,6 @@ class TranslateService {
         return request
     }
 
-    
     private var task: URLSessionTask?
     
     /// Get translation from google
@@ -67,6 +60,5 @@ class TranslateService {
         }
         /// Launch task
         task?.resume()
-        
     }
 }

@@ -1,14 +1,7 @@
-//
-//  URLSessionFake.swift
-//  BaluchonTests
-//
-//  Created by megared on 01/03/2019.
-//  Copyright © 2019 OpenClassrooms. All rights reserved.
-//
 
 import Foundation
 
-// MARK: - Fake URLSession and Fake URLSessionDataTask for EchangeService and Weather service
+// MARK: - Fake URLSession and Fake URLSessionDataTask
 class URLSessionFake: URLSession {
     var data: Data?
     var response: URLResponse?

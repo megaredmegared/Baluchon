@@ -24,7 +24,6 @@
 		4DA477DF222929CA00FF37BE /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA477DE222929CA00FF37BE /* FakeResponseData.swift */; };
 		4DA477E1222930C900FF37BE /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA477E0222930C900FF37BE /* URLSessionFake.swift */; };
 		4DA477E32229E31A00FF37BE /* WeatherServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA477E22229E31A00FF37BE /* WeatherServiceTestCase.swift */; };
-		4DCBFFA82227E72D00E6D03A /* ExchangeRateServiceTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCBFFA72227E72D00E6D03A /* ExchangeRateServiceTextField.swift */; };
 		4DD8B9A1222D308800313764 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8B9A0222D308800313764 /* APIKeys.swift */; };
 		4DD8B9A3222D38C900313764 /* Translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8B9A2222D38C900313764 /* Translation.json */; };
 		4DD8B9A7222D751B00313764 /* TranslateServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8B9A6222D751B00313764 /* TranslateServiceTestCase.swift */; };
@@ -66,7 +65,6 @@
 		4DA477DE222929CA00FF37BE /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		4DA477E0222930C900FF37BE /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		4DA477E22229E31A00FF37BE /* WeatherServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTestCase.swift; sourceTree = "<group>"; };
-		4DCBFFA72227E72D00E6D03A /* ExchangeRateServiceTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateServiceTextField.swift; sourceTree = "<group>"; };
 		4DD8B9A0222D308800313764 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		4DD8B9A2222D38C900313764 /* Translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translation.json; sourceTree = "<group>"; };
 		4DD8B9A6222D751B00313764 /* TranslateServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateServiceTestCase.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				4D16A58122082A78003BD7AD /* Main.storyboard */,
-				4DCBFFA72227E72D00E6D03A /* ExchangeRateServiceTextField.swift */,
 				4D16A58622082A78003BD7AD /* LaunchScreen.storyboard */,
 				4D379A69221FFF0600F2C9EB /* TabBarSetup.swift */,
 			);
@@ -295,7 +292,6 @@
 				4DFB654E221AC96C0039BE91 /* WeatherViewController.swift in Sources */,
 				4DFB6554221AE40F0039BE91 /* ExchangeRate.swift in Sources */,
 				4D16A57E22082A78003BD7AD /* AppDelegate.swift in Sources */,
-				4DCBFFA82227E72D00E6D03A /* ExchangeRateServiceTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

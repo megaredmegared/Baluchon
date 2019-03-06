@@ -1,16 +1,9 @@
-//
-//  TranslateServiceTestCase.swift
-//  BaluchonTests
-//
-//  Created by megared on 04/03/2019.
-//  Copyright © 2019 OpenClassrooms. All rights reserved.
-//
 
 @testable import Baluchon
 import XCTest
 
 class TranslateServiceTestCase: XCTestCase {
-
+    /// Testing Error
     func testGivenError_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let translateService = TranslateService(session: URLSessionFake(
@@ -29,6 +22,7 @@ class TranslateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing bad response
     func testGivenBadResponse_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let translateService = TranslateService(session: URLSessionFake(
@@ -47,6 +41,7 @@ class TranslateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing bad data
     func testGivenBadData_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let translateService = TranslateService(session: URLSessionFake(
@@ -65,6 +60,7 @@ class TranslateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing no response, no data
     func testGivenNoData_WhenPostCallBack_ThenFailedCallBack() {
         // Given
         let translateService = TranslateService(session: URLSessionFake(
@@ -83,6 +79,7 @@ class TranslateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    /// Testing when everything is OK
     func testGivenAllGood_WhenPostCallBack_ThenSuccesCallBackAndData() {
         // Given
         let translateService = TranslateService(session: URLSessionFake(
