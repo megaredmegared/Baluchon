@@ -46,7 +46,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3E9-5B-4Ab">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="321.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="français" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-MC-biZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="français" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RG-MC-biZ" customClass="TranslationUILabelPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="0rT-B8-Kqw"/>
@@ -55,7 +55,7 @@
                                                 <color key="textColor" red="0.5" green="0.39114427994785278" blue="0.81184097009202449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="entrez votre texte à traduire" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CH9-L4-8AY">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="entrez votre texte à traduire" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CH9-L4-8AY" customClass="PaddingUITextView" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="23" width="398" height="298.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" red="0.63770373859999996" green="0.57859635050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,7 +86,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3SS-27-DZB">
                                         <rect key="frame" x="0.0" y="373.5" width="398" height="321.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="anglais" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGy-vf-1BR">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="anglais" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGy-vf-1BR" customClass="TranslationUILabelPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="xeM-lE-U5o"/>
@@ -95,7 +95,7 @@
                                                 <color key="textColor" red="0.5" green="0.3911442799" blue="0.8118409701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text to translate" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Do-ML-eag">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text to translate" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Do-ML-eag" customClass="PaddingUITextView" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="23" width="398" height="298.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -346,13 +346,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bjH-3J-LrQ">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="178"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 EUR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbZ-r6-5y9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 EUR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbZ-r6-5y9" customClass="UILabelPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                 <color key="textColor" red="0.098697833449999994" green="0.43803544090000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="MrQ-Nd-qqo" customClass="UITextFieldWithDoneButton" customModule="Baluchon" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="MrQ-Nd-qqo" customClass="UITextFieldPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="20" width="398" height="50"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.47843137250000001" green="1" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -387,13 +387,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bDc-OU-Z5I">
                                         <rect key="frame" x="0.0" y="186" width="398" height="173"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.12 USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ra-l9-3K0">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.12 USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ra-l9-3K0" customClass="UILabelPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                 <color key="textColor" red="0.098697833449999994" green="0.43803544090000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100000000" textAlignment="right" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-yt-2sZ">
+                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100000000" textAlignment="right" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-yt-2sZ" customClass="UITextFieldPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="20" width="398" height="45"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>

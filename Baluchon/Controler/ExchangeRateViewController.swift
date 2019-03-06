@@ -35,6 +35,8 @@ class ExchangeRateViewController: UIViewController {
         secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
         // Get exchange rates at start
         getRates()
+        // Update view with correct rates
+        updateView(exchangeRate: exchangeRateTemporarlySaved)
     }
     
     //MARK: - Functions
@@ -44,14 +46,14 @@ class ExchangeRateViewController: UIViewController {
             if success, let exchangeRate = exchangeRate {
                 self.exchangeRateTemporarlySaved = exchangeRate
             } else {
-                self.presentAlert()
+                self.presentAlert(message: "Sync of exchange rate failed")
             }
         }
     }
     
     /// Update the exchange rates on screen
     private func updateView(exchangeRate: ExchangeRate) {
-        // Find the selected index of the currencie in pickers
+        // Find the selected index of the currency in pickers
         let firstCurrency: Int = firstMoneyPicker.selectedRow(inComponent: 0)
         let secondCurrency: Int = secondMoneyPicker.selectedRow(inComponent: 0)
         
@@ -59,21 +61,28 @@ class ExchangeRateViewController: UIViewController {
         let firstCurrencySymbol: String = Currency.symbol[Currency.name[firstCurrency]]!
         let secondCurrencySymbol: String = Currency.symbol[Currency.name[secondCurrency]]!
         
-        // Set the labels with the currencie exchange rates
-        firstExchangeRate.text = "1 \(firstCurrencySymbol)"
+        // Set the labels with the currency exchange rates
+        firstExchangeRate.text = "1.0 \(firstCurrencySymbol)"
         let secondCurrencyExchangeRate: Double = round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 100) / 100
         secondExchangeRate.text = "\(secondCurrencyExchangeRate) \(secondCurrencySymbol)"
         
         // Set the values in big number label
-        if firstValue.text == "" {
-            firstValue.text = "1.0"
+        // Check if first Value String could be a Double
+        if Double(firstValue.text!) == nil {
+            firstValue.text = "1.2"
         }
-        secondValue.text = String(round(Double(firstValue.text!)! * secondCurrencyExchangeRate*100)/100)
+        
+        // Transform String into Double
+        let firstNumber: Double = Double(firstValue.text!)!
+        let secondNumber: Double = round(firstNumber * secondCurrencyExchangeRate * 100) / 100
+        // Assign values in String
+        firstValue.text = String(firstNumber)
+        secondValue.text = String(secondNumber)
     }
     
     /// Alert pop up message
-    private func presentAlert() {
-        let alertVC = UIAlertController(title: "Error", message: "Today sync of exchange rate failed", preferredStyle: .alert)
+    private func presentAlert(message: String) {
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
