@@ -10,6 +10,7 @@ import UIKit
 
 class TranslateViewController: UIViewController {
     //MARK: - Variables
+    @IBOutlet var keyboardToolbar: UIToolbar!
     @IBOutlet weak var textToTranslate: UITextView!
     @IBOutlet weak var translated: UITextView!
     @IBOutlet weak var firstLanguageLabel: UILabel!
@@ -24,6 +25,7 @@ class TranslateViewController: UIViewController {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
         setOriginalImage()
+        // set first translation
         getTranslation()
     }
     
@@ -44,6 +46,7 @@ class TranslateViewController: UIViewController {
         invertTraductionLanguages()
         getTranslation()
     }
+    
     
     /// Invert the languages for traduction
     private func invertTraductionLanguages() {
@@ -67,16 +70,28 @@ class TranslateViewController: UIViewController {
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
+    
 }
 
 // MARK: - Keyboard
-extension TranslateViewController: UITextViewDelegate{
-    /// Clear the value in textView to begin tapping a new one
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView == textToTranslate {
-            textToTranslate.text = ""
-        }
+extension TranslateViewController: UITextViewDelegate {
+    /// Attach keyboardToolbar whith done and clear buttons to keyboard
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        textView.inputAccessoryView = keyboardToolbar
+        return true
     }
+    
+    /// Done button when user finished writing
+    @IBAction func didTapKeyboardDoneButton(_ sender: UIBarButtonItem) {
+        getTranslation()
+        view.endEditing(true)
+    }
+    
+    /// Clear button in keyboard toolbar, to erase the whole text
+    @IBAction func didTapKeyboardClearButton(_ sender: UIBarButtonItem) {
+        textToTranslate.text = ""
+    }
+    
     /// Tap away from keyboard to dismiss it
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         getTranslation()

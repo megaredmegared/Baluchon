@@ -10,6 +10,8 @@ import UIKit
 
 class ExchangeRateViewController: UIViewController {
     //MARK: - Variables
+    @IBOutlet var keyboardToolbar: UIToolbar!
+    
     @IBOutlet weak var firstExchangeRate: UILabel!
     @IBOutlet weak var secondExchangeRate: UILabel!
     
@@ -18,8 +20,6 @@ class ExchangeRateViewController: UIViewController {
     
     @IBOutlet weak var firstMoneyPicker: UIPickerView!
     @IBOutlet weak var secondMoneyPicker: UIPickerView!
-    
-    @IBOutlet weak var dismissKeyboardTouchView: UIView!
     
     /// Temporarly saved the data rates will app is running
     var exchangeRateTemporarlySaved = ExchangeRate()
@@ -35,8 +35,6 @@ class ExchangeRateViewController: UIViewController {
         secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
         // Get exchange rates at start
         getRates()
-        
-        
     }
     
     //MARK: - Functions
@@ -112,6 +110,16 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
 
 // MARK: - Keyboard
 extension ExchangeRateViewController: UITextFieldDelegate {
+    /// Attach keyboardToolbar to the keyboard
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.inputAccessoryView = keyboardToolbar
+        return true
+    }
+    /// Tap Done button from keyboardToolbar to dismiss the keyboard
+    @IBAction func didTapKeyboardDoneButton(_ sender: UIBarButtonItem) {
+        updateView(exchangeRate: exchangeRateTemporarlySaved)
+        view.endEditing(true)
+    }
     /// Clear the value in text field to begin tapping a new one
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == firstValue {
@@ -121,12 +129,8 @@ extension ExchangeRateViewController: UITextFieldDelegate {
     /// Tap away from keyboard to dismiss it
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
-        firstValue.resignFirstResponder()
-    }
-    /// Tap Done button from keyboard to dismiss it
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        updateView(exchangeRate: exchangeRateTemporarlySaved)
-        return true
+        view.endEditing(true)
+        //TODO: - Ask what is better solution ?
+        //firstValue.resignFirstResponder() -> better ?
     }
 }
