@@ -8,7 +8,8 @@ class ExchangeRateService {
     private init() {}
     
     /// Create url (creation of HTTPS url need paid version of Fixer API, so "App Transport Security Settings" in Info.plist is modified to allow insecure connection on fixer.io url)
-    private let url = URL(string: "http://data.fixer.io/api/latest?access_key=2b1c586fe6418b1ca758d811c6593b1f&base=EUR")!
+    private let url = URL(
+        string: "http://data.fixer.io/api/latest?access_key=\(fixerKey)&base=EUR")!
     
     /// Create session
     private var session = URLSession(configuration: .default)

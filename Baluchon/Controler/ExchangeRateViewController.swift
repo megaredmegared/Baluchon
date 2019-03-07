@@ -29,6 +29,9 @@ class ExchangeRateViewController: UIViewController {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
         setOriginalImage()
+        self.navigationItem.title = ""
+        
+    
         // set first picker to Euro
         firstMoneyPicker.selectRow(0, inComponent:0, animated:true)
         // set second picker to Dollar
