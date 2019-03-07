@@ -35,8 +35,8 @@ class ExchangeRateViewController: UIViewController {
         secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
         // Get exchange rates at start
         getRates()
-        // Update view with correct rates
-        updateView(exchangeRate: exchangeRateTemporarlySaved)
+        //TODO: - Update view with correct rates why not working ?
+//        updateView(exchangeRate: exchangeRateTemporarlySaved)
     }
     
     //MARK: - Functions
@@ -45,6 +45,7 @@ class ExchangeRateViewController: UIViewController {
         ExchangeRateService.shared.getExchangeRate { (success, exchangeRate) in
             if success, let exchangeRate = exchangeRate {
                 self.exchangeRateTemporarlySaved = exchangeRate
+                self.updateView(exchangeRate: self.exchangeRateTemporarlySaved)
             } else {
                 self.presentAlert(message: "Sync of exchange rate failed")
             }
