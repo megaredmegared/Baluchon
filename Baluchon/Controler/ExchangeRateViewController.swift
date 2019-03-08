@@ -73,7 +73,7 @@ class ExchangeRateViewController: UIViewController {
         // Set the values in big number label
         // Check if first Value String could be a Double
         if Double(firstValue.text!) == nil {
-            firstValue.text = "1.2"
+            firstValue.text = "1.0"
         }
         
         // Transform String into Double

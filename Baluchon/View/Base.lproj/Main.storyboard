@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -59,7 +60,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="entrez votre texte à traduire" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CH9-L4-8AY" customClass="PaddingUITextView" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="23" width="234.5" height="191"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="textColor" red="0.63770373859999996" green="0.57859635050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" name="BaluchonViolet"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                                                 <userDefinedRuntimeAttributes>
@@ -139,7 +140,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.63770373863535423" green="0.57859635048510816" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BaluchonViolet"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JKU-F3-gBa" firstAttribute="bottom" secondItem="0eg-fG-zT7" secondAttribute="bottom" constant="8" id="Oiy-iV-cjZ"/>
@@ -171,14 +172,14 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem title="Clear" style="done" id="dZs-jb-got">
-                            <color key="tintColor" red="0.63770373859999996" green="0.57859635050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" name="BaluchonViolet"/>
                             <connections>
                                 <action selector="didTapKeyboardClearButton:" destination="Gyl-ch-1ZW" id="pE5-xt-WGq"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="kP2-QG-f8R"/>
                         <barButtonItem style="done" systemItem="done" id="wVb-yk-9cG">
-                            <color key="tintColor" red="0.63770373859999996" green="0.57859635050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" name="BaluchonViolet"/>
                             <connections>
                                 <action selector="didTapKeyboardDoneButton:" destination="Gyl-ch-1ZW" id="Nd5-Zj-m8b"/>
                             </connections>
@@ -281,7 +282,7 @@
                                 </variation>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.19739566689999999" green="0.87607088180000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BaluchonBlue"/>
                         <constraints>
                             <constraint firstItem="mgs-a0-evW" firstAttribute="leading" secondItem="4Zt-2X-C7c" secondAttribute="leading" constant="8" id="9cC-wy-YvF"/>
                             <constraint firstItem="mgs-a0-evW" firstAttribute="centerX" secondItem="mdG-Ff-lBM" secondAttribute="centerX" id="Yto-o1-nr4"/>
@@ -354,7 +355,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 EUR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbZ-r6-5y9" customClass="UILabelPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                                <color key="textColor" red="0.098697833449999994" green="0.43803544090000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" name="BaluchonDarkGreen"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" textAlignment="right" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="MrQ-Nd-qqo" customClass="UITextFieldPadding" customModule="Baluchon" customModuleProvider="target">
@@ -394,7 +395,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.12 USD" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ra-l9-3K0" customClass="UILabelPadding" customModule="Baluchon" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="272" height="12"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                                <color key="textColor" red="0.098697833449999994" green="0.43803544090000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" name="BaluchonDarkGreen"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100000000" textAlignment="right" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="JZb-yt-2sZ" customClass="UITextFieldPadding" customModule="Baluchon" customModuleProvider="target">
@@ -418,7 +419,7 @@
                                 <variation key="heightClass=compact" axis="horizontal" distribution="fillEqually"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.47929771269999999" green="1" blue="0.4617855682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BaluchonGreen"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OYV-ye-frG" firstAttribute="centerX" secondItem="WhG-k3-9b0" secondAttribute="centerX" id="5mz-HO-AqO"/>
@@ -454,7 +455,7 @@
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="uIy-fk-tit"/>
                         <barButtonItem style="done" systemItem="done" id="sBv-dp-v3O">
-                            <color key="tintColor" red="0.47929771269999999" green="1" blue="0.4617855682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" name="BaluchonGreen"/>
                             <connections>
                                 <action selector="didTapKeyboardDoneButton:" destination="6h5-hg-ohZ" id="LS6-Jl-Nhe"/>
                             </connections>
@@ -474,5 +475,17 @@
         <image name="logoTauxDeChangeBig" width="40" height="40"/>
         <image name="logoTranslationBig" width="40" height="40"/>
         <image name="logoWeatherBig" width="40" height="40"/>
+        <namedColor name="BaluchonBlue">
+            <color red="0.19607843137254902" green="0.87450980392156863" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BaluchonDarkGreen">
+            <color red="0.23921568627450981" green="0.58039215686274515" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BaluchonGreen">
+            <color red="0.47843137254901963" green="1" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BaluchonViolet">
+            <color red="0.63921568627450975" green="0.58039215686274515" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
