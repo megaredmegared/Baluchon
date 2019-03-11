@@ -16,6 +16,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var secondCityName: UILabel!
     @IBOutlet weak var secondCityTemperature: UILabel!
     @IBOutlet weak var secondCityWeather: UILabel!
+    @IBOutlet weak var firstCityWeatherIcon: UIImageView!
+    @IBOutlet weak var secondCityWeatherIcon: UIImageView!
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -31,9 +33,35 @@ class WeatherViewController: UIViewController {
     private func getCityWeather() {
         WeatherService.shared.getWeather { (success, cityWeather) in
             if success, let cityWeather = cityWeather {
+                
                 self.update(cityWeather: cityWeather)
+                self.getCitiesWeatherIcon(from: cityWeather)
+                
             } else {
-                self.presentAlert()
+                self.presentAlert("Today sync of weather failed")
+            }
+        }
+    }
+    
+    private func getCitiesWeatherIcon(from cityWeather: CityWeather) {
+        let firstCityIcon = cityWeather.list[0].weather[0].icon
+        WeatherService.shared.getWeatherIcon(for: firstCityIcon) { (success, iconData) in
+            if success, let iconData = iconData {
+                self.firstCityWeatherIcon.image = UIImage(data: iconData)
+                self.getSecondCityWeatherIcon(from: cityWeather)
+            } else {
+                self.presentAlert("No icon found for first city")
+            }
+        }
+    }
+    
+    private func getSecondCityWeatherIcon(from cityWeather: CityWeather) {
+        let secondCityIcon = cityWeather.list[1].weather[0].icon
+        WeatherService.shared.getWeatherIcon(for: secondCityIcon) { (success, iconData) in
+            if success, let iconData = iconData {
+                self.secondCityWeatherIcon.image = UIImage(data: iconData)
+            } else {
+                self.presentAlert("No icon found for second city")
             }
         }
     }
@@ -48,9 +76,10 @@ class WeatherViewController: UIViewController {
         secondCityWeather.text = cityWeather.list[1].weather[0].description
     }
     
+    
     /// Alert pop up message
-    private func presentAlert() {
-        let alertVC = UIAlertController(title: "Error", message: "Today sync of weather failed", preferredStyle: .alert)
+    private func presentAlert(_ message: String) {
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }

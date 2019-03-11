@@ -22,19 +22,10 @@ class UITextFieldPadding : UITextField {
 
 /// Text padding for UILabel
 class UILabelPadding : UILabel {
-    let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    static var padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     
     override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: padding))
-    }
-}
-//TODO: - Try to add #IBInspectable to get ride of the second UILabel Padding
-/// Text padding for UILabel in translation
-class TranslationUILabelPadding : UILabel {
-    let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
-    
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: padding))
+        super.drawText(in: rect.inset(by: UILabelPadding.padding))
     }
 }
 

@@ -38,8 +38,6 @@ class ExchangeRateViewController: UIViewController {
         secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
         // Get exchange rates at start
         getRates()
-        //TODO: - Update view with correct rates why not working ?
-//        updateView(exchangeRate: exchangeRateTemporarlySaved)
     }
     
     //MARK: - Functions
@@ -131,7 +129,7 @@ extension ExchangeRateViewController: UITextFieldDelegate {
     /// Tap Done button from keyboardToolbar to dismiss the keyboard
     @IBAction func didTapKeyboardDoneButton(_ sender: UIBarButtonItem) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
-        view.endEditing(true)
+        firstValue.resignFirstResponder()
     }
     /// Clear the value in text field to begin tapping a new one
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -142,8 +140,6 @@ extension ExchangeRateViewController: UITextFieldDelegate {
     /// Tap away from keyboard to dismiss it
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
-        view.endEditing(true)
-        //TODO: - Ask what is better solution ?
-        //firstValue.resignFirstResponder() -> better ?
+       firstValue.resignFirstResponder()
     }
 }

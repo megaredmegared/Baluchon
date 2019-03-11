@@ -23,6 +23,9 @@ class TranslateViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set right padding for Languages labels
+        UILabelPadding.padding.right = 12
+        UILabelPadding.padding.left = 12
         // set the icon in tab bar to is true color
         setOriginalImage()
         // set first translation
@@ -84,7 +87,7 @@ extension TranslateViewController: UITextViewDelegate {
     /// Done button when user finished writing
     @IBAction func didTapKeyboardDoneButton(_ sender: UIBarButtonItem) {
         getTranslation()
-        view.endEditing(true)
+       textToTranslate.resignFirstResponder()
     }
     
     /// Clear button in keyboard toolbar, to erase the whole text
