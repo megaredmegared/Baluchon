@@ -3,16 +3,7 @@ import Foundation
 
 /// Currencies names and symbols names
 class Currency {
-    static var name =  [
-        "Euro",
-        "Dollar",
-        "Dollar canadien",
-        "Dollar australien",
-        "Yuan Ren-Min-Bi",
-        "Yen",
-        "Livre sterling"
-    ]
-    static var symbol =  [
+    static var nameAndSymbol =  [
         "Euro": "EUR",
         "Dollar": "USD",
         "Dollar canadien": "CAD",

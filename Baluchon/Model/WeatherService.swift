@@ -51,7 +51,7 @@ class WeatherService {
         task?.resume()
     }
     
-    /// Get weathers icon from openweathermap.org API
+    /// Get weathers icon from openweathermap.org
     func getWeatherIcon(for icon: String, callback: @escaping (Bool, Data?) -> Void) {
         /// Create url for icon
         let urlIcon = URL(string: "https://openweathermap.org/img/w/\(icon).png")!

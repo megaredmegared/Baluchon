@@ -43,11 +43,14 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    /// get weather icon for both cities
     private func getCitiesWeatherIcon(from cityWeather: CityWeather) {
+        // get first city icon
         let firstCityIcon = cityWeather.list[0].weather[0].icon
         WeatherService.shared.getWeatherIcon(for: firstCityIcon) { (success, iconData) in
             if success, let iconData = iconData {
                 self.firstCityWeatherIcon.image = UIImage(data: iconData)
+                // then get second city icon
                 self.getSecondCityWeatherIcon(from: cityWeather)
             } else {
                 self.presentAlert("No icon found for first city")
@@ -55,6 +58,7 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    /// get weather icon for the second city
     private func getSecondCityWeatherIcon(from cityWeather: CityWeather) {
         let secondCityIcon = cityWeather.list[1].weather[0].icon
         WeatherService.shared.getWeatherIcon(for: secondCityIcon) { (success, iconData) in
@@ -75,7 +79,6 @@ class WeatherViewController: UIViewController {
         secondCityTemperature.text = "\(Int(round(cityWeather.list[1].main.temp)))°C"
         secondCityWeather.text = cityWeather.list[1].weather[0].description
     }
-    
     
     /// Alert pop up message
     private func presentAlert(_ message: String) {

@@ -23,16 +23,13 @@ class TranslateViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // set right padding for Languages labels
-        UILabelPadding.padding.right = 12
-        UILabelPadding.padding.left = 12
         // set the icon in tab bar to is true color
         setOriginalImage()
         // set first translation
         getTranslation()
     }
     
-    //MARKS: - Functions
+    //MARK: - Functions
     /// Get translation from a text
     private func getTranslation() {
         TranslateService.shared.getTranslation(for: textToTranslate.text, from: firstLanguage, to: secondLanguage) { (success, translation) in

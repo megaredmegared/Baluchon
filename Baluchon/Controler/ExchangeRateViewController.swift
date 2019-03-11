@@ -24,18 +24,19 @@ class ExchangeRateViewController: UIViewController {
     /// Temporarly saved the data rates will app is running
     var exchangeRateTemporarlySaved = ExchangeRate()
     
+    /// List of the currencies ordered
+    let currencyList = Currency.nameAndSymbol.keys.sorted()
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // set the icon in tab bar to is true color
         setOriginalImage()
         self.navigationItem.title = ""
-        
-    
         // set first picker to Euro
-        firstMoneyPicker.selectRow(0, inComponent:0, animated:true)
+        firstMoneyPicker.selectRow(3, inComponent:0, animated:true)
         // set second picker to Dollar
-        secondMoneyPicker.selectRow(1, inComponent:0, animated:true)
+        secondMoneyPicker.selectRow(0, inComponent:0, animated:true)
         // Get exchange rates at start
         getRates()
     }
@@ -59,9 +60,9 @@ class ExchangeRateViewController: UIViewController {
         let firstCurrency: Int = firstMoneyPicker.selectedRow(inComponent: 0)
         let secondCurrency: Int = secondMoneyPicker.selectedRow(inComponent: 0)
         
-        // Translate currencie in the symbol form
-        let firstCurrencySymbol: String = Currency.symbol[Currency.name[firstCurrency]]!
-        let secondCurrencySymbol: String = Currency.symbol[Currency.name[secondCurrency]]!
+        // Translate currency name in the symbol form
+        let firstCurrencySymbol: String = Currency.nameAndSymbol[currencyList[firstCurrency]]!
+        let secondCurrencySymbol: String = Currency.nameAndSymbol[currencyList[secondCurrency]]!
         
         // Set the labels with the currency exchange rates
         firstExchangeRate.text = "1.0 \(firstCurrencySymbol)"
@@ -99,17 +100,17 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == firstMoneyPicker {
-            return Currency.name.count
+            return Currency.nameAndSymbol.keys.count
         } else {
-            return Currency.name.count
+            return Currency.nameAndSymbol.keys.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == firstMoneyPicker {
-            return Currency.name[row]
+            return currencyList[row]
         } else {
-            return Currency.name[row]
+            return currencyList[row]
         }
     }
     
@@ -140,6 +141,6 @@ extension ExchangeRateViewController: UITextFieldDelegate {
     /// Tap away from keyboard to dismiss it
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         updateView(exchangeRate: exchangeRateTemporarlySaved)
-       firstValue.resignFirstResponder()
+        firstValue.resignFirstResponder()
     }
 }
