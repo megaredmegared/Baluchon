@@ -1,5 +1,4 @@
 
-import Foundation
 import UIKit
 
 /// Text padding for UITextField

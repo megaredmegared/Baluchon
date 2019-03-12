@@ -1,8 +1,6 @@
 //
 //  Weather.swift
 
-import Foundation
-
 /// City weather infos
 struct CityWeather: Codable {
     let list: [City]

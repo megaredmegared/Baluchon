@@ -1,5 +1,6 @@
 
 import Foundation
+import UIKit
 
 class FakeResponseData {
     //MARK: - Fake data common to all
@@ -41,5 +42,7 @@ class FakeResponseData {
         let data = try! Data(contentsOf: url)
         return data
     }
+    /// Fake weather icon data Ok with real image
+    static let iconDataOk = UIImage(named: "okImage.jpg")?.pngData()
 }
 

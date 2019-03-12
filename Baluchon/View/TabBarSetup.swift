@@ -1,5 +1,4 @@
 
-import Foundation
 import UIKit
 
 /// Configuration of the tab bar
@@ -19,20 +18,6 @@ class TabBar: UITabBar {
             return UITraitCollection(horizontalSizeClass: .compact)
         } else  {
             return super.traitCollection
-        }
-    }
-}
-
-extension UIImageView {
-    func loadurl(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
         }
     }
 }

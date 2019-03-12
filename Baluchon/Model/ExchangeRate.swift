@@ -1,6 +1,4 @@
 
-import Foundation
-
 /// Exchange rate infos
 struct ExchangeRate: Codable {
     var success: Bool = false

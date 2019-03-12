@@ -1,6 +1,4 @@
 
-import Foundation
-
 /// Currencies names and symbols names
 class Currency {
     static var nameAndSymbol =  [

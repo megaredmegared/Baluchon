@@ -1,5 +1,6 @@
 
 import Foundation
+import UIKit
 
 /// Weather service from openweathermap.org API
 class WeatherService {
@@ -7,17 +8,14 @@ class WeatherService {
     static var shared = WeatherService()
     private init() {}
     
+    //MARK: - Gather weather infos from openweathermap.org API
     /// Create one url for NewYork id=5128638 and Lyon id=6454573
     private let url = URL(string: "https://api.openweathermap.org/data/2.5/group?id=5128638,6454573&APPID=9af6ca5e641ba4fd6375a3359c966809&lang=fr&units=metric")!
     
-    
     /// Create session
     private var weatherSession = URLSession(configuration: .default)
-    private var weatherIconSession = URLSession(configuration: .default)
-    
-    init(weatherSession: URLSession, weatherIconSession: URLSession) {
+    init(weatherSession: URLSession) {
         self.weatherSession = weatherSession
-        self.weatherIconSession = weatherIconSession
     }
     
     private var task: URLSessionTask?
@@ -51,6 +49,13 @@ class WeatherService {
         task?.resume()
     }
     
+    //MARK: - Get icon infos from openweathermap.org
+    /// Create session
+    private var weatherIconSession = URLSession(configuration: .default)
+    init(weatherIconSession: URLSession) {
+        self.weatherIconSession = weatherIconSession
+    }
+    
     /// Get weathers icon from openweathermap.org
     func getWeatherIcon(for icon: String, callback: @escaping (Bool, Data?) -> Void) {
         /// Create url for icon
@@ -70,11 +75,11 @@ class WeatherService {
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     return callback(false, nil)
                 }
-                // Check if data is Decodable
-//                let decoder = JSONDecoder()
-//                guard let weather = try? decoder.decode(Data, from: data) else {
-//                    return callback(false, nil)
-//                }
+                // Check if data is an image
+                guard UIImage(data: data) != nil else {
+                    callback(false, nil)
+                    return
+                }
                 // Callback success
                 callback(true, data)
             }
@@ -82,5 +87,4 @@ class WeatherService {
         /// Launch task
         task?.resume()
     }
-
 }
