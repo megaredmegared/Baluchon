@@ -59,8 +59,8 @@ class ExchangeRateViewController: UIViewController {
         
         // Set the labels with the currency exchange rates
         firstExchangeRate.text = "1.0 \(firstCurrencySymbol)"
-        let secondCurrencyExchangeRate: Double = round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 100) / 100
-        secondExchangeRate.text = "\(secondCurrencyExchangeRate) \(secondCurrencySymbol)"
+        let secondCurrencyExchangeRate: Double = exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]!
+        secondExchangeRate.text = "\(round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 10000) / 10000) \(secondCurrencySymbol)"
         
         // Set the values in big number label
         // Check if first Value String could be a Double
