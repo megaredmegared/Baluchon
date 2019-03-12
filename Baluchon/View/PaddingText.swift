@@ -21,7 +21,7 @@ class UITextFieldPadding : UITextField {
 
 /// Text padding for UILabel
 class UILabelPadding : UILabel {
-   
+    
     @IBInspectable var topInset: CGFloat = 0
     @IBInspectable var bottomInset: CGFloat = 0
     @IBInspectable var leftInset: CGFloat = 0
@@ -35,10 +35,29 @@ class UILabelPadding : UILabel {
 
 /// Text padding for UITextView
 class PaddingUITextView: UITextView {
-    //TODO: - Override of stored property not possible?
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        textContainerInset = UIEdgeInsets(top: 12, left: 10, bottom: 12, right: 10)
+    
+    @IBInspectable var topInset: CGFloat = 0 {
+        didSet {
+            self.contentInset = UIEdgeInsets(top: topInset, left: self.contentInset.left, bottom: self.contentInset.bottom, right: self.contentInset.right)
+        }
+    }
+    
+    @IBInspectable var bottomInset: CGFloat = 0 {
+        didSet {
+            self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: bottomInset, right: self.contentInset.right)
+        }
+    }
+    
+    @IBInspectable var leftInset: CGFloat = 0 {
+        didSet {
+            self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: leftInset, bottom: self.contentInset.bottom, right: self.contentInset.right)
+        }
+    }
+    
+    @IBInspectable var rightInset: CGFloat = 0 {
+        didSet {
+            self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: self.contentInset.bottom, right: rightInset)
+        }
     }
 }
 
