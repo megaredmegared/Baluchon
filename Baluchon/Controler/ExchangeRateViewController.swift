@@ -63,7 +63,7 @@ class ExchangeRateViewController: UIViewController {
         secondExchangeRate.text = "\(round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 10000) / 10000) \(secondCurrencySymbol)"
         
         // Set the values in big number label
-        // Check if first Value String could be a Double
+        // Check if first Value String could be a Double if not set a default value
         if Double(firstValue.text!) == nil {
             firstValue.text = "1.0"
         }
