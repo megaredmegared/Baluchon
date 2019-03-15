@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController {
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // set the icon in tab bar to is true color
+        // set the icon in tab bar to its true color
         setOriginalImage()
         // Get weather infos
         getCityWeather()
@@ -40,7 +40,7 @@ class WeatherViewController: UIViewController {
     private func getCitiesWeatherIcon(from cityWeather: CityWeather, isSecondCity: Bool) {
         
         // get city icon name
-        var cityIconName = cityWeather.list[0].weather[0].icon        
+        var cityIconName = cityWeather.list[0].weather[0].icon
         if isSecondCity {
             cityIconName = cityWeather.list[1].weather[0].icon
         }
@@ -54,7 +54,7 @@ class WeatherViewController: UIViewController {
                     self.getCitiesWeatherIcon(from: cityWeather, isSecondCity: true)
                 }
             } else {
-                self.presentAlert("No icon found for first city")
+                self.presentAlert("No icon found")
             }
         }
     }
