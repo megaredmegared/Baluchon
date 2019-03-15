@@ -50,16 +50,16 @@ class ExchangeRateViewController: UIViewController {
     /// Update the exchange rates on screen
     private func updateView(exchangeRate: ExchangeRate) {
         // Find the selected index of the currency in pickers
-        let firstCurrency: Int = firstMoneyPicker.selectedRow(inComponent: 0)
-        let secondCurrency: Int = secondMoneyPicker.selectedRow(inComponent: 0)
+        let firstCurrency = firstMoneyPicker.selectedRow(inComponent: 0)
+        let secondCurrency = secondMoneyPicker.selectedRow(inComponent: 0)
         
         // Translate currency name in the symbol form
-        let firstCurrencySymbol: String = Currency.nameAndSymbol[currencyList[firstCurrency]]!
-        let secondCurrencySymbol: String = Currency.nameAndSymbol[currencyList[secondCurrency]]!
+        let firstCurrencySymbol = Currency.nameAndSymbol[currencyList[firstCurrency]]!
+        let secondCurrencySymbol = Currency.nameAndSymbol[currencyList[secondCurrency]]!
         
         // Set the labels with the currency exchange rates
         firstExchangeRate.text = "1.0 \(firstCurrencySymbol)"
-        let secondCurrencyExchangeRate: Double = exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]!
+        let secondCurrencyExchangeRate = exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]!
         secondExchangeRate.text = "\(round(exchangeRate.rates[secondCurrencySymbol]! / exchangeRate.rates[firstCurrencySymbol]! * 10000) / 10000) \(secondCurrencySymbol)"
         
         // Set the values in big number label
@@ -69,8 +69,8 @@ class ExchangeRateViewController: UIViewController {
         }
         
         // Transform String into Double
-        let firstNumber: Double = Double(firstValue.text!)!
-        let secondNumber: Double = round(firstNumber * secondCurrencyExchangeRate * 100) / 100
+        let firstNumber = Double(firstValue.text!)!
+        let secondNumber = round(firstNumber * secondCurrencyExchangeRate * 100) / 100
         // Assign values in String
         firstValue.text = String(firstNumber)
         secondValue.text = String(secondNumber)
@@ -93,9 +93,9 @@ extension ExchangeRateViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == firstMoneyPicker {
-            return Currency.nameAndSymbol.keys.count
+            return currencyList.count
         } else {
-            return Currency.nameAndSymbol.keys.count
+            return currencyList.count
         }
     }
     

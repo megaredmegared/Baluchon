@@ -28,7 +28,7 @@ class WeatherViewController: UIViewController {
             if success, let cityWeather = cityWeather {
                 
                 self.update(cityWeather: cityWeather)
-                self.getCitiesWeatherIcon(from: cityWeather)
+                self.getCitiesWeatherIcon(from: cityWeather, isSecondCity: false)
                 
             } else {
                 self.presentAlert("Today sync of weather failed")
@@ -37,28 +37,24 @@ class WeatherViewController: UIViewController {
     }
     
     /// get weather icon for both cities
-    private func getCitiesWeatherIcon(from cityWeather: CityWeather) {
-        // get first city icon
-        let firstCityIcon = cityWeather.list[0].weather[0].icon
-        WeatherService.shared.getWeatherIcon(for: firstCityIcon) { (success, iconData) in
+    private func getCitiesWeatherIcon(from cityWeather: CityWeather, isSecondCity: Bool) {
+        
+        // get city icon name
+        var cityIconName = cityWeather.list[0].weather[0].icon        
+        if isSecondCity {
+            cityIconName = cityWeather.list[1].weather[0].icon
+        }
+        WeatherService.shared.getWeatherIcon(for: cityIconName) { (success, iconData) in
             if success, let iconData = iconData {
-                self.firstCityWeatherIcon.image = UIImage(data: iconData)
-                // then get second city icon
-                self.getSecondCityWeatherIcon(from: cityWeather)
+                if isSecondCity {
+                    self.secondCityWeatherIcon.image = UIImage(data: iconData)
+                } else {
+                    self.firstCityWeatherIcon.image = UIImage(data: iconData)
+                    // then get second city icon
+                    self.getCitiesWeatherIcon(from: cityWeather, isSecondCity: true)
+                }
             } else {
                 self.presentAlert("No icon found for first city")
-            }
-        }
-    }
-    
-    /// get weather icon for the second city
-    private func getSecondCityWeatherIcon(from cityWeather: CityWeather) {
-        let secondCityIcon = cityWeather.list[1].weather[0].icon
-        WeatherService.shared.getWeatherIcon(for: secondCityIcon) { (success, iconData) in
-            if success, let iconData = iconData {
-                self.secondCityWeatherIcon.image = UIImage(data: iconData)
-            } else {
-                self.presentAlert("No icon found for second city")
             }
         }
     }
