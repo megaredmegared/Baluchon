@@ -10,7 +10,7 @@ class WeatherService {
     
     //MARK: - Gather weather infos from openweathermap.org API
     /// Create one url for NewYork id=5128638 and Lyon id=6454573
-    private let url = URL(string: "https://api.openweathermap.org/data/2.5/group?id=5128638,6454573&APPID=9af6ca5e641ba4fd6375a3359c966809&lang=fr&units=metric")!
+    private let url = URL(string: "https://api.openweathermap.org/data/2.5/group?id=5128638,6454573&APPID=\(openWeatherKey)&lang=fr&units=metric")!
     
     /// Create session
     private var weatherSession = URLSession(configuration: .default)
