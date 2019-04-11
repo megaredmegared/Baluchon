@@ -4,6 +4,20 @@ import UIKit
 /// Text padding for UITextField
 class UITextFieldPadding : UITextField {
     
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        padding()
+//    }
+//
+//    let insets = UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 17)
+//
+//    func padding() {
+//        let bound = bounds.inset(by: insets)
+//        textRect(forBounds: bound )
+//        placeholderRect(forBounds: bound)
+//        editingRect(forBounds: bound)
+//    }
+    
     let padding = UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 17)
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -36,28 +50,13 @@ class UILabelPadding : UILabel {
 /// Text padding for UITextView
 class PaddingUITextView: UITextView {
     
-    @IBInspectable var topInset: CGFloat = 0 {
-        didSet {
-            self.contentInset = UIEdgeInsets(top: topInset, left: self.contentInset.left, bottom: self.contentInset.bottom, right: self.contentInset.right)
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        padding()
     }
     
-    @IBInspectable var bottomInset: CGFloat = 0 {
-        didSet {
-            self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: bottomInset, right: self.contentInset.right)
-        }
-    }
-    
-    @IBInspectable var leftInset: CGFloat = 0 {
-        didSet {
-            self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: leftInset, bottom: self.contentInset.bottom, right: self.contentInset.right)
-        }
-    }
-    
-    @IBInspectable var rightInset: CGFloat = 0 {
-        didSet {
-            self.contentInset = UIEdgeInsets(top: self.contentInset.top, left: self.contentInset.left, bottom: self.contentInset.bottom, right: rightInset)
-        }
+    func padding() {
+        contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }
 

@@ -20,6 +20,7 @@ class TranslateViewController: UIViewController {
         setOriginalImage()
         // set first translation
         getTranslation()
+   
     }
     
     //MARK: - Functions
