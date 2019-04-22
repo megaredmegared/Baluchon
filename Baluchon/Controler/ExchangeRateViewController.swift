@@ -14,7 +14,7 @@ class ExchangeRateViewController: UIViewController {
     @IBOutlet weak var firstMoneyPicker: UIPickerView!
     @IBOutlet weak var secondMoneyPicker: UIPickerView!
     
-    /// Temporarly saved the data rates will app is running
+    /// Temporarly saved the data rates while app is running
     var exchangeRateTemporarlySaved = ExchangeRate()
     
     /// List of the currencies ordered
