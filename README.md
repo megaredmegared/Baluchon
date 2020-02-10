@@ -2,7 +2,7 @@
 
 Baluchon est une app de voyage:
 
-- Qui permet de vérifier le taux de change entre 7 monnaies
+- Qui permet de vérifier le taux de change entre 7 devises
 - De traduire entre français et anglais
 - De voir la météo à deux endroits différents
 
